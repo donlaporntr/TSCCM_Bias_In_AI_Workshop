@@ -65,11 +65,11 @@ def make_gender_balance(df, m_ratio, f_ratio):
 
 DISEASES = ["leukemia", "hepatic_failure", "immunosuppression", "lymphoma", "cirrhosis", "aids"]
 
-def bar_chart_of_diseases(df, group_by): 
+def bar_chart_of_diseases(df, group_by, diseases=DISEASES): 
     long_df = pd.melt(
         df,
         id_vars=["patient_id", group_by],
-        value_vars=DISEASES,
+        value_vars=diseases,
         value_name="presence",
         var_name="disease",
     )
@@ -96,13 +96,20 @@ def bar_chart_of_diseases(df, group_by):
         legend=False,
     )
 
-    for ax in g.axes.flatten():
-        plt.setp(ax.get_xticklabels(), rotation=30, ha="right")
+    if len(diseases) > 3 :
+        for ax in g.axes.flatten():
+            plt.setp(ax.get_xticklabels(), rotation=30, ha="right")
 
     g.set_titles(col_template="{col_name}")
-    g.set_axis_labels("Disease", "Ratio of Patients")
+    if len(diseases) == 1: 
+        g.set_axis_labels("", "Ratio of Patients")
+    else:
+        g.set_axis_labels("Disease", "Ratio of Patients")
     plt.tight_layout()
     plt.show()
+
+def bar_chart_of_cirrhosis (df, group_by): 
+    return bar_chart_of_diseases(df, group_by, ["cirrhosis"])
 
 def display_feature_columns (df, n_cols = 4, spacing = 3) :
     cols = [x for x in df.columns if x.startswith('d1_') and x.endswith('_min') ]
@@ -117,26 +124,6 @@ def display_feature_columns (df, n_cols = 4, spacing = 3) :
     for row in rows:
         print(" ".join(["{:<" + str(length) + "}"] * n_cols).format(*row))
 
-def plot_cirrhosis_distribution (df, display_features): 
-    long_df = pd.melt(
-        df,
-        id_vars=["patient_id", "cirrhosis"],
-        value_vars=display_features,
-        value_name="value",
-        var_name="feature",
-    )
-    _ = sns.displot(
-        data=long_df,
-        x="value",
-        hue="cirrhosis",
-        col="feature",
-        stat="density",
-        common_norm=False,
-        common_bins=False,
-        facet_kws={"sharex": False, "sharey": False},
-        aspect=3,
-        col_wrap=2,
-    )
 
 #########################################################################
 # Training ML Model                                                     #
@@ -192,6 +179,58 @@ def train(
 
     model.fit(X_train, y_train)
     return model
+
+def make_balance (X_train, y_train):
+    df = X_train.copy()
+    df['target'] = y_train
+
+    group_true = df[df['target'] == True]
+    group_false = df[df['target'] == False]
+
+    min_size = min(len(group_true), len(group_false))
+
+    group_true_sampled = group_true.sample(n=min_size, random_state=42)
+    group_false_sampled = group_false.sample(n=min_size, random_state=42)
+
+    balanced_df = pd.concat([group_true_sampled, group_false_sampled]).sample(frac=1, random_state=42)
+
+    y_balanced = balanced_df['target']
+    X_balanced = balanced_df.drop(columns=['target'])
+
+    return X_balanced, y_balanced
+
+def train_and_evaluate(
+    df,
+    numerical_features: list[str],
+    categorical_features: list[str],
+    target: str,
+    groups: list[str] = ["gender", "age", "ethnicity"],
+    everyone_as_male: bool = False,
+    mitigate_bias: bool = None,
+):
+
+    df = df.dropna(subset=[target]).copy()
+    features = numerical_features + categorical_features
+
+    X = df[features]
+    y = df[target]
+    group = df[groups]
+
+    X_train, X_test, y_train, y_test, _, group_test = train_test_split(
+        X, y, group, test_size=0.3, random_state=42
+    )
+
+    if mitigate_bias is not None: 
+        X_train, y_train = mitigate_bias(X_train, y_train)
+
+    X_train, y_train = make_balance(X_train, y_train)    
+    model = train(X_train, y_train, numerical_features, categorical_features)
+    features = categorical_features + numerical_features
+
+    if everyone_as_male and "gender" in features: 
+        X_test["gender"] = "M"
+
+    return evaluate(model, X_test, y_test, group_test)
 
 def compute_metrics(group):
     tp = group["TP"].sum()
