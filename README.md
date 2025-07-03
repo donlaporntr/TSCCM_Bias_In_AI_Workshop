@@ -5,7 +5,8 @@ which is a part of *14th Critical Care Conference in Thailand 2025*.
 
 ## Prerequisites
 
-Install required packages to your Python environment with
+It is required to have Python 3.11 or above. Install required packages to your Python environment
+with
 
 ```bash
 pip install -r requirements.txt
