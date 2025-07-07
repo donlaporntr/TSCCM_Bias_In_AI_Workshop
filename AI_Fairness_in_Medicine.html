@@ -7611,16 +7611,13 @@ decisions!</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Part-II:-Let's-build-your-first-medical-AI-model!">Part II: Let's build your first medical AI model!<a class="anchor-link" href="#Part-II:-Let's-build-your-first-medical-AI-model!">¶</a></h2><p>In this workshop, we will use a real-world medical dataset from the
+<h2 id="Part-II:-Let's-build-your-first-medical-AI-model!">Part II: Let's build your first medical AI model!<a class="anchor-link" href="#Part-II:-Let's-build-your-first-medical-AI-model!">¶</a></h2><p>We talk a lot about fairness, so first, what do we mean by fairness in the context of AI? To visualize this, let’s imagine being in a courtroom for a moment. Suppose the judge is an AI system. To have a “fair” system, we wouldn’t want this AI judge to take gender, race, or religion into account when making a ruling. That is because of our principle: we understand that men and women, people of different races, and followers of different religions should be treated equally in court. So, we expect the AI judge to reflect that principle and remain free of those biases.</p>
+<p>Now, consider a medical setting. Take lung cancer, for example. We know that men and women share similar biological risk factors for the disease. If an AI system is used to help diagnose lung cancer, we would also expect it not to discriminate based on gender. When the model behaves this way — treating similar cases equally — we call it fair. Being fair means not using “unwanted unrelated factors” to improve the accuracy.</p>
+<h3 id="Dataset-Description">Dataset Description<a class="anchor-link" href="#Dataset-Description">¶</a></h3><p>In this workshop, we will use a part of real-world medical dataset from the
 <a href="https://www.kaggle.com/competitions/widsdatathon2020/data">WiDS Datathon 2020</a>, which contains
 anonymized patient records from intensive care units (ICUs) around the world. The dataset includes a
 wide range of clinical features such as demographics, vital signs, laboratory results, and
 comorbidities collected during the first 24 hours of a patient's ICU stay.</p>
-<p>While the original competition focused on predicting in-hospital mortality (<code>hospital_death</code>), our
-goal will be to develop a model that predicts whether a patient has cirrhosis, using the <code>cirrhosis</code>
-column as our target variable. This shift allows us to explore the challenges and considerations
-involved in building AI models for different clinical outcomes, while practicing essential steps in
-the machine learning workflow.</p>
 <p>Before delving into the data, here is the dataset description for WiDS Datathon 2020.</p>
 <blockquote>
 <p>The challenge is to create a model that uses data from the first 24 hours of intensive care to
@@ -8015,8 +8012,7 @@ We only see a few rows and a few columns.</p>
     <span class="n">ethnicity_counts</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
     <span class="n">labels</span><span class="o">=</span><span class="n">ethnicity_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">)</span>
-<span class="s2">""</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -8026,12 +8022,6 @@ We only see a few rows and a few columns.</p>
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>''</pre>
-</div>
-</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
@@ -8189,7 +8179,7 @@ arterial_pco2         arterial_ph           arterial_po2          pao2fio2ratio
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Modeling">Modeling<a class="anchor-link" href="#Modeling">¶</a></h2>
+<h3 id="Modeling">Modeling<a class="anchor-link" href="#Modeling">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8285,13 +8275,11 @@ arterial_pco2         arterial_ph           arterial_po2          pao2fio2ratio
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now let's practice what we have discussed. From the list below, choose <strong>two</strong> or <strong>three</strong> problems
-that you are familiar with then proceed.</p>
-<p>Given a problem and a goal, which types of patient data should we collect? And how would it help
+<p>Now let's practice what we have discussed. Choose a problem that you are familiar with, then
+for that problem, which types of patient data should we collect? And how would it help
 constructing an accurate model? What are the other use cases in ICU care or medical practice that we
 can apply this solution to? Do they have the same format of data? Can we apply the same data
-cleaning method? If you cannot think of any, what about applying the same modeling technique to the
-following problems?</p>
+cleaning method? If you cannot think of any, choose one problem from the following list.</p>
 <ol>
 <li>Estimating ST-elevation from ECG signal</li>
 <li>Detecting lung cancer from CXR images</li>
@@ -8330,15 +8318,12 @@ false positives (FP), and false negatives (FN), allowing us to see not only the 
 also the types of errors the model is making. This detailed breakdown helps identify whether the
 model is biased toward certain classes or is systematically making specific types of mistakes.</p>
 <p><img alt="cm-definition" src="https://www.researchgate.net/publication/377027146/figure/fig5/AS:11431281215285308@1704113587226/The-Matrix-of-TP-FP-FN-TN-Precision-Recall-dan-Accuracy.ppm" width="400"/></p>
-<p>Beyond the confusion matrix, other important evaluation metrics include precision, recall
-(sensitivity), specificity, F1-score, and the area under the receiver operating characteristic curve
-(AUC-ROC).</p>
+<p>With confusion matrix, we derive other important evaluation metrics including accuracy, precision and recall
+(sensitivity).</p>
 <ul>
+<li><strong>Accuracy</strong> measures the proportion of correct guesses among total guesses.</li>
 <li><strong>Precision</strong> measures the proportion of positive predictions that are actually correct.</li>
 <li><strong>Recall</strong> measures the proportion of actual positives that are correctly identified.</li>
-<li>The <strong>F1-score</strong> provides a balance between precision and recall, especially useful in imbalanced
-datasets.</li>
-<li><strong>AUC-ROC</strong> evaluates the models ability to distinguish between classes across different thresholds.</li>
 </ul>
 <p>These metrics provide a more comprehensive understanding of model performance, especially in medical
 or high-stakes applications where certain types of errors may have greater consequences.</p>
@@ -8440,6 +8425,8 @@ or high-stakes applications where certain types of errors may have greater conse
 <p>Nope, if we mistakenly say that a female patient is male, then the prediction changes drastically although there is no biological reason to expect so.</p>
 <p>You can see the difference between the last two figures. The first one is a normal one and the second one is the one where we say everyone are male. We have a lot more True Positive female patients!</p>
 <p>Now, before we look into how we can mitigate the gender bias, could you see how does this bias occur?</p>
+<h3 id="Bias-Mitigation">Bias Mitigation<a class="anchor-link" href="#Bias-Mitigation">¶</a></h3><p>Before getting into the process of mitigating the bias, we should understand how the bias gets there. We have seen that from the dataset, the ratio of male patient is a lot higher than that of the female patient. The training process could not know that men and women have similar biological risks, so it makes sense if it thinks men are more susceptible.</p>
+<p>To mitigate the bias, we then resample the dataset to reflect the reality. We make sure that the ratio of the male patients and that of the female patients are similar. We do this by randomly removing some records of healthy female patients and male patients with cirrhosis until the ratios are equal. With that, the model learns there are no difference between the two genders, hence resolving the bias.</p>
 </div>
 </div>
 </div>
