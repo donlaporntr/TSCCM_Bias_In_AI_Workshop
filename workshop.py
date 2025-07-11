@@ -274,12 +274,12 @@ def compute_metrics(group):
     accuracy = (tp + tn) / total if total > 0 else 0
     precision = tp / (tp + fp) if tp + fp > 0 else 0
     recall = tp / (tp + fn) if tp + fn > 0 else 0
-    f1 = (
-        2 * (precision * recall) / (precision + recall) if precision + recall > 0 else 0
-    )
+    # f1 = (
+    #     2 * (precision * recall) / (precision + recall) if precision + recall > 0 else 0
+    # )
 
     return pd.Series(
-        {"Accuracy": accuracy, "Precision": precision, "Recall": recall, "F1": f1}
+        {"Accuracy": accuracy, "Precision": precision, "Recall": recall, } #"F1": f1
     )
 
 
@@ -291,7 +291,7 @@ def plot_model_result(data: pd.DataFrame):
 
     # Raw count heatmaps
     sns.heatmap(
-        data=data.groupby("gender")[display_columns].sum(), ax=axes[0], annot=True
+        data=data.groupby("gender")[display_columns].sum(), ax=axes[0], annot=True, fmt="d"
     )
     axes[0].set_title("Confusion Counts by Gender")
 
