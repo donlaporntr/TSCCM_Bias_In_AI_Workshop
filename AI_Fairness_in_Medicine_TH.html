@@ -7518,7 +7518,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> workshop.py
+<div class="highlight hl-python"><pre><span></span><span class="o">%</span><span class="n">run</span> <span class="n">workshop</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </div>
@@ -7615,7 +7615,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_dataframe</span><span class="p">(</span><span class="s2">"./data/training_v2.csv"</span><span class="p">)</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_dataframe</span><span class="p">(</span><span class="s2">"./data/training_v2.csv"</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -7962,7 +7962,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"age"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"gender"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
@@ -7971,7 +7971,7 @@ a.anchor-link {
     <span class="n">ethnicity_counts</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
     <span class="n">labels</span><span class="o">=</span><span class="n">ethnicity_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">);</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7981,6 +7981,15 @@ a.anchor-link {
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(np.float64(-1.0999999634569717),
+ np.float64(1.0999999982598558),
+ np.float64(-1.0999999224808028),
+ np.float64(1.0999999894803398))</pre>
+</div>
+</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
@@ -8008,7 +8017,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">bar_chart_of_diseases</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">group_by</span><span class="o">=</span><span class="s2">"gender"</span><span class="p">)</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">bar_chart_of_diseases</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">group_by</span><span class="o">=</span><span class="s2">"gender"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8034,7 +8043,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">bar_chart_of_diseases</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">group_by</span><span class="o">=</span><span class="s2">"ethnicity"</span><span class="p">)</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">bar_chart_of_diseases</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">group_by</span><span class="o">=</span><span class="s2">"ethnicity"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8089,7 +8098,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">display_feature_columns</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">display_feature_columns</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8156,7 +8165,7 @@ arterial_pco2         arterial_ph           arterial_po2          pao2fio2ratio
 <div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">bar_chart_of_cirrhosis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">group_by</span><span class="o">=</span><span class="s2">"gender"</span><span class="p">)</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">bar_chart_of_cirrhosis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">group_by</span><span class="o">=</span><span class="s2">"gender"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8193,7 +8202,7 @@ arterial_pco2         arterial_ph           arterial_po2          pao2fio2ratio
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">BASIC_FEATURES</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">BASIC_FEATURES</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">"d1_albumin_max"</span><span class="p">,</span> <span class="s2">"d1_albumin_min"</span><span class="p">,</span>
     <span class="s2">"d1_inr_max"</span><span class="p">,</span><span class="s2">"d1_inr_min"</span><span class="p">,</span>
     <span class="s2">"d1_bilirubin_max"</span><span class="p">,</span> <span class="s2">"d1_bilirubin_min"</span><span class="p">,</span>
@@ -8281,7 +8290,8 @@ arterial_pco2         arterial_ph           arterial_po2          pao2fio2ratio
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>ก่อนจะไปต่อ ลองพิจารณาว่าควรใช้ตัวชี้วัดใดในการประเมินผลสำหรับปัญหาที่เลือกไว้ก่อนหน้านี้</p>
+<p>ก่อนที่เราจะเข้าสู่ช่วงถัดไป ลองพิจารณาว่าควรใช้ตัวชี้วัดใดในการประเมินผลสำหรับปัญหาที่เลือกไว้ก่อนหน้านี้ หรือควรมีตัวชี้วัดอื่น ๆ ที่
+มีความเหมาะสมมากกว่าตัวชี้วัดเหล่านี้หรือไม่</p>
 </div>
 </div>
 </div>
@@ -8293,7 +8303,7 @@ arterial_pco2         arterial_ph           arterial_po2          pao2fio2ratio
 <div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">result_df</span> <span class="o">=</span> <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">result_df</span> <span class="o">=</span> <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
                                <span class="n">numerical_features</span><span class="o">=</span><span class="n">BASIC_FEATURES</span><span class="p">,</span>
                                <span class="n">categorical_features</span><span class="o">=</span><span class="p">[</span><span class="s2">"gender"</span><span class="p">],</span>
                                <span class="n">target</span><span class="o">=</span><span class="s2">"cirrhosis"</span><span class="p">,</span>
@@ -8335,7 +8345,7 @@ arterial_pco2         arterial_ph           arterial_po2          pao2fio2ratio
 <div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">result_df</span> <span class="o">=</span> <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">result_df</span> <span class="o">=</span> <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
                                <span class="n">numerical_features</span><span class="o">=</span><span class="n">BASIC_FEATURES</span><span class="p">,</span>
                                <span class="n">categorical_features</span><span class="o">=</span><span class="p">[</span><span class="s2">"gender"</span><span class="p">],</span>
                                <span class="n">target</span><span class="o">=</span><span class="s2">"cirrhosis"</span><span class="p">,</span>
@@ -8382,7 +8392,7 @@ arterial_pco2         arterial_ph           arterial_po2          pao2fio2ratio
 <div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">result_df</span> <span class="o">=</span> <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">result_df</span> <span class="o">=</span> <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
                                <span class="n">numerical_features</span><span class="o">=</span><span class="n">BASIC_FEATURES</span><span class="p">,</span>
                                <span class="n">categorical_features</span><span class="o">=</span><span class="p">[</span><span class="s2">"gender"</span><span class="p">],</span>
                                <span class="n">target</span><span class="o">=</span><span class="s2">"cirrhosis"</span><span class="p">,</span>
@@ -8414,7 +8424,7 @@ arterial_pco2         arterial_ph           arterial_po2          pao2fio2ratio
 <div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">result_df</span> <span class="o">=</span> <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">result_df</span> <span class="o">=</span> <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
                                <span class="n">numerical_features</span><span class="o">=</span><span class="n">BASIC_FEATURES</span><span class="p">,</span>
                                <span class="n">categorical_features</span><span class="o">=</span><span class="p">[</span><span class="s2">"gender"</span><span class="p">],</span>
                                <span class="n">target</span><span class="o">=</span><span class="s2">"cirrhosis"</span><span class="p">,</span>
@@ -8446,20 +8456,10 @@ arterial_pco2         arterial_ph           arterial_po2          pao2fio2ratio
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>เมื่อเราสร้างโมเดลโดยใช้การลดอคติทางเพศ การระบุเพศผิดจะไม่ส่งผลกระทบต่อผลลัพธ์มากนัก อย่า</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=21342637-ea07-47d1-888b-63a11c8c44c8">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>ชุดข้อมูลที่ไม่สมดุลเป็นปัญหาสำคัญใน AI ทางการแพทย์ เนื่องจากโมเดลอาจเรียนรู้ที่จะให้ความสำคัญกับกลุ่มใหญ่ ส่งผลให้การตรวจพบกลุ่มที่มีจำนวนน้อยแต่มีความสำคัญลดลง ในกรณีนี้ อัตราผู้ป่วยชายมากกว่าหญิง 3 เท่า โมเดลจึงมีแนวโน้มทำนายว่าผู้ชายเป็นตับแข็งและผู้หญิงไม่เป็น</p>
+<p>เมื่อเราสร้างโมเดลโดยใช้การลดอคติทางเพศ การระบุเพศผิดจะไม่ส่งผลกระทบต่อผลลัพธ์มากนัก ในการสร้างโมเดล AI การใช้ชุดข้อมูลที่ไม่สมดุลเป็นปัญหาสำคัญโดยเฉพาะในทางการแพทย์ เนื่องจากโมเดลอาจเรียนรู้ที่จะให้ความสำคัญกับประชากรกลุ่มที่เป็น
+ส่วนใหญ่มากกว่า ส่งผลให้การตรวจพบกลุ่มที่มีจำนวนน้อยแต่มีความสำคัญลดลง ในกรณีนี้ อัตราผู้ป่วยชายมากกว่าหญิง 3 เท่า โมเดลจึงมีแนวโน้มทำนายว่าผู้ชายเป็นตับแข็งและผู้หญิงไม่เป็นตับแข๊ง</p>
 <p>เราแก้ไขปัญหานี้โดยการสุ่มตัวอย่างใหม่ (resampling) เนื่องจากข้อเท็จจริงทางชีววิทยาระบุว่าผู้ชายและผู้หญิงมีความเสี่ยงต่อโรคตับแข็งใกล้เคียงกัน จึงสุ่มตัวอย่างให้กลุ่มชายหญิงมีสัดส่วนเท่ากัน ส่งผลให้โมเดลมีประสิทธิภาพดีขึ้น</p>
-<p>ท้ายที่สุด ขอเชิญอภิปรายประเด็นต่อไปนี้:</p>
+<p>ท้ายที่สุด ลองพิจารณาประเด็นต่อไปนี้:</p>
 <ul>
 <li>คุณคิดว่ามีตัวอย่างใดที่อคติช่วยให้โมเดลมีความแม่นยำมากขึ้น หรืออคติมีประโยชน์ในบางกรณีหรือไม่</li>
 <li>ในตัวอย่างดังกล่าว คุณจะทราบได้อย่างไรว่าอคตินั้นยุติธรรมหรือไม่ เหมาะสมหรือไม่</li>
@@ -8467,6 +8467,16 @@ arterial_pco2         arterial_ph           arterial_po2          pao2fio2ratio
 <li>จะทราบได้อย่างไรว่า ChatGPT ปลอดภัยจากอคติ ควรตั้งคำถามใดเพื่อหาคำตอบ</li>
 <li>ควรใช้งาน ChatGPT อย่างไรเมื่อทราบว่ามีอคติอยู่</li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=91779460">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 </div>
 </div>
 </div>
